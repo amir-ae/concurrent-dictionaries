@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Benchmarks.Benchmarks-20240707-200507</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3737/23H2/2023Update/SunValley3)
+AMD Ryzen 9 5980HS with Radeon Graphics, 1 CPU, 16 logical and 8 physical cores
+.NET SDK 8.0.100
+  [Host]     : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+  DefaultJob : .NET 8.0.0 (8.0.23.53103), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method        </th><th>ConcurrencyLevel</th><th>Mean  </th><th>Error</th><th>StdDev</th><th>P95   </th><th>P90   </th><th>P85   </th><th>Op/s</th><th>Gen0</th><th>Completed Work Items</th><th>Lock Contentions</th><th>Gen1</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>GetRateConcurrent</td><td>10</td><td>2.930 &mu;s</td><td>0.0383 &mu;s</td><td>0.0358 &mu;s</td><td>2.986 &mu;s</td><td>2.974 &mu;s</td><td>2.958 &mu;s</td><td>341,315.4</td><td>0.2213</td><td>10.0063</td><td>0.0000</td><td>-</td><td>1.81 KB</td>
+</tr><tr><td>GetRateLock</td><td>10</td><td>3.228 &mu;s</td><td>0.0441 &mu;s</td><td>0.0412 &mu;s</td><td>3.300 &mu;s</td><td>3.288 &mu;s</td><td>3.275 &mu;s</td><td>309,761.6</td><td>0.2213</td><td>10.0038</td><td>0.0000</td><td>-</td><td>1.82 KB</td>
+</tr><tr><td>GetRateConcurrent</td><td>100</td><td>30.208 &mu;s</td><td>0.1533 &mu;s</td><td>0.1434 &mu;s</td><td>30.388 &mu;s</td><td>30.379 &mu;s</td><td>30.367 &mu;s</td><td>33,104.1</td><td>1.9531</td><td>100.0001</td><td>0.0005</td><td>-</td><td>15.87 KB</td>
+</tr><tr><td>GetRateLock</td><td>100</td><td>27.899 &mu;s</td><td>0.1302 &mu;s</td><td>0.1218 &mu;s</td><td>28.072 &mu;s</td><td>28.061 &mu;s</td><td>28.045 &mu;s</td><td>35,842.9</td><td>1.9531</td><td>100.0001</td><td>0.0027</td><td>-</td><td>15.88 KB</td>
+</tr><tr><td>GetRateConcurrent</td><td>1000</td><td>246.232 &mu;s</td><td>4.6721 &mu;s</td><td>4.5886 &mu;s</td><td>251.411 &mu;s</td><td>251.015 &mu;s</td><td>250.629 &mu;s</td><td>4,061.2</td><td>19.5313</td><td>1000.0000</td><td>0.0181</td><td>3.4180</td><td>156.53 KB</td>
+</tr><tr><td>GetRateLock</td><td>1000</td><td>196.717 &mu;s</td><td>1.2643 &mu;s</td><td>1.1826 &mu;s</td><td>198.209 &mu;s</td><td>198.135 &mu;s</td><td>198.043 &mu;s</td><td>5,083.5</td><td>19.5313</td><td>1000.0000</td><td>0.0171</td><td>3.1738</td><td>156.54 KB</td>
+</tr><tr><td>GetRateConcurrent</td><td>10000</td><td>2,176.146 &mu;s</td><td>10.9049 &mu;s</td><td>9.6669 &mu;s</td><td>2,188.787 &mu;s</td><td>2,186.142 &mu;s</td><td>2,185.036 &mu;s</td><td>459.5</td><td>191.4063</td><td>10000.0000</td><td>-</td><td>105.4688</td><td>1562.82 KB</td>
+</tr><tr><td>GetRateLock</td><td>10000</td><td>1,827.250 &mu;s</td><td>17.6747 &mu;s</td><td>16.5329 &mu;s</td><td>1,848.739 &mu;s</td><td>1,843.957 &mu;s</td><td>1,843.478 &mu;s</td><td>547.3</td><td>191.4063</td><td>10000.0000</td><td>-</td><td>109.3750</td><td>1562.82 KB</td>
+</tr><tr><td>UpdateRateConcurrent</td><td>10</td><td>3.104 &mu;s</td><td>0.0486 &mu;s</td><td>0.0455 &mu;s</td><td>3.176 &mu;s</td><td>3.160 &mu;s</td><td>3.152 &mu;s</td><td>322,193.9</td><td>0.2441</td><td>10.0263</td><td>0.0001</td><td>-</td><td>1.99 KB</td>
+</tr><tr><td>UpdateRateLock</td><td>10</td><td>4.796 &mu;s</td><td>0.0870 &mu;s</td><td>0.0814 &mu;s</td><td>4.890 &mu;s</td><td>4.849 &mu;s</td><td>4.847 &mu;s</td><td>208,498.6</td><td>0.1831</td><td>10.0037</td><td>0.0002</td><td>-</td><td>1.53 KB</td>
+</tr><tr><td>UpdateRateConcurrent</td><td>100</td><td>34.222 &mu;s</td><td>0.4689 &mu;s</td><td>0.4387 &mu;s</td><td>34.921 &mu;s</td><td>34.760 &mu;s</td><td>34.678 &mu;s</td><td>29,220.9</td><td>2.1973</td><td>100.0046</td><td>0.7422</td><td>-</td><td>18.19 KB</td>
+</tr><tr><td>UpdateRateLock</td><td>100</td><td>48.976 &mu;s</td><td>0.2827 &mu;s</td><td>0.2207 &mu;s</td><td>49.212 &mu;s</td><td>49.186 &mu;s</td><td>49.183 &mu;s</td><td>20,418.1</td><td>1.6479</td><td>100.0001</td><td>0.0031</td><td>-</td><td>13.49 KB</td>
+</tr><tr><td>UpdateRateConcurrent</td><td>1000</td><td>279.727 &mu;s</td><td>3.8084 &mu;s</td><td>3.5623 &mu;s</td><td>285.376 &mu;s</td><td>284.940 &mu;s</td><td>284.294 &mu;s</td><td>3,574.9</td><td>22.4609</td><td>1000.0000</td><td>8.7139</td><td>3.4180</td><td>179.95 KB</td>
+</tr><tr><td>UpdateRateLock</td><td>1000</td><td>429.681 &mu;s</td><td>2.5125 &mu;s</td><td>2.2272 &mu;s</td><td>432.825 &mu;s</td><td>431.826 &mu;s</td><td>431.605 &mu;s</td><td>2,327.3</td><td>16.1133</td><td>1000.0000</td><td>0.0464</td><td>2.9297</td><td>133.08 KB</td>
+</tr><tr><td>UpdateRateConcurrent</td><td>10000</td><td>2,311.348 &mu;s</td><td>24.3197 &mu;s</td><td>20.3081 &mu;s</td><td>2,334.733 &mu;s</td><td>2,334.274 &mu;s</td><td>2,333.198 &mu;s</td><td>432.6</td><td>218.7500</td><td>10000.0000</td><td>22.6016</td><td>109.3750</td><td>1797.14 KB</td>
+</tr><tr><td>UpdateRateLock</td><td>10000</td><td>4,076.800 &mu;s</td><td>22.6109 &mu;s</td><td>21.1503 &mu;s</td><td>4,111.300 &mu;s</td><td>4,109.427 &mu;s</td><td>4,106.783 &mu;s</td><td>245.3</td><td>156.2500</td><td>10000.0000</td><td>0.0859</td><td>101.5625</td><td>1328.4 KB</td>
+</tr></tbody></table>
+</body>
+</html>
